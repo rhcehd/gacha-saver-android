@@ -1,7 +1,7 @@
 package dev.rhcehd123.core.data.repository.impl
 
 import dev.rhcehd123.core.data.repository.GachaSaverRepository
-import dev.rhcehd123.core.model.GachaResult
+import dev.rhcehd123.core.model.GachaHistory
 import dev.rhcehd123.core.network.GachaSaverNetworkDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +12,7 @@ import javax.inject.Inject
 class GachaSaverRepositoryImpl @Inject constructor(
     private val gachaSaverNetworkDataSource: GachaSaverNetworkDataSource
 ): GachaSaverRepository {
-    override fun getGachaHistory(): Flow<List<GachaResult>> {
+    override fun getGachaHistory(): Flow<List<GachaHistory>> {
         return flow {
             emit(
                 try {

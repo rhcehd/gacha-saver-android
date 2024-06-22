@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.rhcehd123.core.designsystem.theme.GachaSaverTheme
+import dev.rhcehd123.core.model.GachaHistory
+import dev.rhcehd123.feature.gachahistory.Utils.formatDate
 
 @Composable
 fun GachaHistoryScreen(
@@ -57,8 +59,9 @@ private fun SuccessScreen(
             }
             items(uiState.history) {
                 GachaHistoryColumn(
-                    name = it.gachaItem.name,
-                    rate = "${it.gachaItem.rate}%",
+                    name = it.name,
+                    rate = "${it.rate}%",
+                    datetime = it.datetime.formatDate(),
                 )
             }
         }
@@ -70,6 +73,7 @@ private fun GachaHistoryColumn(
     title: String = "",
     name: String = "",
     rate: String = "",
+    datetime: String = "",
     isHeader: Boolean = false,
 ) {
     Row {
@@ -97,6 +101,14 @@ private fun GachaHistoryColumn(
                 rate
             }
         )
+        Text(
+            modifier = Modifier.weight(1f),
+            text = if(isHeader) {
+                "날짜"
+            } else {
+                datetime
+            }
+        )
     }
 }
 
@@ -116,7 +128,16 @@ private fun GachaHistorySuccessScreenPreview() {
             uiState = GachaHistoryUiState
                 .Success(
                     listOf(
-
+                        GachaHistory(
+                            name = "A",
+                            rate = "50.0",
+                            datetime = "yyyy-MM-dd HH:mm:ss"
+                        ),
+                        GachaHistory(
+                            name = "B",
+                            rate = "50.0",
+                            datetime = "yyyy-MM-dd HH:mm:ss"
+                        )
                     )
                 )
         )

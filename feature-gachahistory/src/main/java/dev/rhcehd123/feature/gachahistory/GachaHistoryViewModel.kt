@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.rhcehd123.core.data.repository.GachaSaverRepository
-import dev.rhcehd123.core.model.GachaResult
+import dev.rhcehd123.core.model.GachaHistory
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
@@ -27,5 +27,5 @@ class GachaHistoryViewModel @Inject constructor(
 
 sealed interface GachaHistoryUiState {
     object Loading: GachaHistoryUiState
-    data class Success(val history: List<GachaResult>): GachaHistoryUiState
+    data class Success(val history: List<GachaHistory>): GachaHistoryUiState
 }
