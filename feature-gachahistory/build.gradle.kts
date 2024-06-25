@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.rhcehd123.feature.gachahistory"
+    namespace = "dev.rhcehd123.gachasaver.feature.gachahistory"
     compileSdk = 34
 
     defaultConfig {

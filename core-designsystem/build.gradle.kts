@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.rhcehd123.core.designsystem"
+    namespace = "dev.rhcehd123.gachasaver.core.designsystem"
     compileSdk = 34
 
     defaultConfig {
