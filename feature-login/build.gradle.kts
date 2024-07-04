@@ -1,11 +1,10 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.gachasaver.android.library)
-    alias(libs.plugins.gachasaver.android.hilt)
+    alias(libs.plugins.gachasaver.android.feature)
+    alias(libs.plugins.gachasaver.android.library.compose)
 }
 
 android {
-    namespace = "dev.rhcehd123.gachasaver.core.network"
+    namespace = "dev.rhcehd123.gachasaver.feature.login"
     compileSdk = 34
 
     defaultConfig {
@@ -17,8 +16,7 @@ android {
 }
 
 dependencies {
-
-    implementation(project(":core-model"))
+    implementation(project(":core-data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.appcompat)
@@ -26,7 +24,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-
-    implementation(libs.retrofit.core)
-    implementation(libs.retrofit.converter.gson)
 }
